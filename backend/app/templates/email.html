@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject }}</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111827;
+      line-height: 1.6;
+      margin: 0;
+      padding: 24px 16px;
+    }
+    .email-container {
+      max-width: 580px;
+      margin: 0;
+      font-size: 15px;
+      color: #1f2937;
+    }
+    p {
+      margin: 0 0 16px 0;
+    }
+    .job-details-block {
+      margin: 20px 0;
+      padding: 14px 18px;
+      background-color: #f8fafc;
+      border-left: 3px solid #2563eb;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #1e293b;
+    }
+    .job-item {
+      margin-bottom: 6px;
+    }
+    .job-item:last-child {
+      margin-bottom: 0;
+    }
+    .job-item strong {
+      color: #0f172a;
+      display: inline-block;
+      min-width: 80px;
+    }
+    .btn-apply {
+      background: #2563eb;
+      color: #ffffff !important;
+      padding: 13px 26px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      display: inline-block;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    }
+    .btn-apply:hover {
+      background: #1d4ed8;
+    }
+    .signoff {
+      margin-top: 28px;
+      color: #374151;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .signoff strong {
+      color: #111827;
+    }
+    .footer {
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 12px;
+      color: #9ca3af;
+      line-height: 1.4;
+    }
+    .footer a {
+      color: #9ca3af;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <p>{{ greeting_salutation }}</p>
+
+    <p>
+      I came across your profile and noticed that your background is a strong fit for the <strong>{{ job_title }}</strong> position{% if location %} in {{ location }}{% endif %}.
+    </p>
+
+    <p>
+      Based on your profile, I thought this opening would be of interest to you. Please find the position details and application link below:
+    </p>
+
+    {% if custom_message %}
+    <p style="margin: 16px 0; color: #374151;">
+      {{ custom_message }}
+    </p>
+    {% endif %}
+
+    <div class="job-details-block">
+      <div class="job-item"><strong>Position:</strong> {{ job_title }}</div>
+      {% if location %}<div class="job-item"><strong>Location:</strong> {{ location }}</div>{% endif %}
+      {% if employment_type %}<div class="job-item"><strong>Type:</strong> {{ employment_type }}</div>{% endif %}
+    </div>
+
+    <!-- Direct Application Button (Embedded Link, No Raw URL displayed) -->
+    <div style="margin: 24px 0 20px 0; text-align: left;">
+      <a href="{{ listing_url }}" target="_blank" rel="noopener noreferrer" class="btn-apply">
+        View Role & Apply Now &rarr;
+      </a>
+    </div>
+
+    <p style="margin-top: 20px;">
+      If you are interested, please take a moment to review the position and submit your application soon while the vacancy is open.
+    </p>
+
+    <p>
+      Please feel free to reach out if you have any questions.
+    </p>
+
+    <div class="signoff">
+      Best regards,<br>
+      <strong>{{ hr_name }}</strong><br>
+      <span style="color: #6b7280; font-size: 13px;">Talent Acquisition | SponsorAJobs</span>
+    </div>
+
+    <div class="footer">
+      <a href="{{ unsubscribe_url }}" target="_blank">Unsubscribe</a>
+    </div>
+  </div>
+</body>
+</html>

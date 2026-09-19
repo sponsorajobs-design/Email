@@ -1,0 +1,28 @@
+{{ subject }}
+
+{{ greeting_salutation }}
+
+I came across your profile and noticed that your background is a strong fit for the {{ job_title }} position{% if location %} in {{ location }}{% endif %}.
+
+Based on your profile, I thought this opening would be of interest to you. Please find the position details and application link below:
+{% if custom_message %}
+{{ custom_message }}
+{% endif %}
+
+Position: {{ job_title }}
+{% if location %}Location: {{ location }}{% endif %}
+{% if employment_type %}Type: {{ employment_type }}{% endif %}
+
+You can review the full role description and apply directly here:
+{{ listing_url }}
+
+If you are interested, please take a moment to review the position and submit your application soon while the vacancy is open.
+
+Please feel free to reach out if you have any questions.
+
+Best regards,
+{{ hr_name }}
+Talent Acquisition | SponsorAJobs
+
+---
+Unsubscribe: {{ unsubscribe_url }}
